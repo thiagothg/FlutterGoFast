@@ -26,21 +26,11 @@ mixin _$AppController on _AppControllerBase, Store {
     }, _$themeAppAtom, name: '${_$themeAppAtom.name}_set');
   }
 
-  final _$valueAtom = Atom(name: '_AppControllerBase.value');
+  final _$loadThemeDataAsyncAction = AsyncAction('loadThemeData');
 
   @override
-  int get value {
-    _$valueAtom.context.enforceReadPolicy(_$valueAtom);
-    _$valueAtom.reportObserved();
-    return super.value;
-  }
-
-  @override
-  set value(int value) {
-    _$valueAtom.context.conditionallyRunInAction(() {
-      super.value = value;
-      _$valueAtom.reportChanged();
-    }, _$valueAtom, name: '${_$valueAtom.name}_set');
+  Future loadThemeData() {
+    return _$loadThemeDataAsyncAction.run(() => super.loadThemeData());
   }
 
   final _$setThemeDataAsyncAction = AsyncAction('setThemeData');
@@ -51,30 +41,9 @@ mixin _$AppController on _AppControllerBase, Store {
         .run(() => super.setThemeData(themeMode, saveShared: saveShared));
   }
 
-  final _$getThemeDataAsyncAction = AsyncAction('getThemeData');
-
-  @override
-  Future getThemeData() {
-    return _$getThemeDataAsyncAction.run(() => super.getThemeData());
-  }
-
-  final _$_AppControllerBaseActionController =
-      ActionController(name: '_AppControllerBase');
-
-  @override
-  void increment() {
-    final _$actionInfo = _$_AppControllerBaseActionController.startAction();
-    try {
-      return super.increment();
-    } finally {
-      _$_AppControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
   @override
   String toString() {
-    final string =
-        'themeApp: ${themeApp.toString()},value: ${value.toString()}';
+    final string = 'themeApp: ${themeApp.toString()}';
     return '{$string}';
   }
 }
