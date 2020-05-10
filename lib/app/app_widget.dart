@@ -14,6 +14,7 @@ class AppWidget extends StatelessWidget {
           navigatorKey: Modular.navigatorKey,
           title: 'Flutter Slidy',
           theme: Modular.get<AppController>().themeApp.getTheme(),
+          themeMode: Modular.get<AppController>().themeMode,
           initialRoute: '/',
           onGenerateRoute: Modular.generateRoute,
           supportedLocales: [
