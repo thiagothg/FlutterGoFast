@@ -17,6 +17,8 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  google_sign_in: ^4.4.4
+  firebase_auth: ^0.16.0
   cloud_firestore: ^0.13.5
   shared_preferences: ^0.5.7
   dio: ^3.0.9
@@ -35,6 +37,7 @@ dev_dependencies:
   mockito: ^4.1.1
   mobx_codegen: ^1.0.3
   build_runner: ^1.9.0
+  effective_dart: ^1.2.1
   flutter_test:
     sdk: flutter
 
