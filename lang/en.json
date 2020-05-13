@@ -1,5 +1,14 @@
 {
-    "welcome": "Welcome to App",
-    "login": "Login",
-    "logout": "Logout"
+    "intro": {
+        "welcome": "Welcome to PostIn",
+        "login_now": "Login Now",
+        "or": "or",
+        "login_google": "ENTRAR COM GOOGLE",
+        "text_step1": "Share your favorite {{photos}}.",
+        "text_step2": "Share moments, expiriences and friendly`s",
+        "text_step3": "Be whatever you want, comunicate and learn form others"
+    },
+    "login": {
+
+    }
 }

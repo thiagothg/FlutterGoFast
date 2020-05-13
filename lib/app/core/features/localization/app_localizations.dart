@@ -10,7 +10,7 @@ class AppLocalizations {
 
   AppLocalizations(this.locale);
 
-  Map<String, String> _localizationsStrings;
+  Map<String, dynamic> _localizationsStrings;
 
   Future<bool> load() async {
     var jsonString = await rootBundle.loadString('lang/${locale.languageCode}.json');
@@ -24,8 +24,33 @@ class AppLocalizations {
     return true;
   }
 
-  String translate(String key) {
-    return _localizationsStrings[key];
+  String translate(String key, 
+    {Map<String, String> params, String defaultValue = ''}) {
+      var value;
+
+    if(key.contains('.')) {
+      key.split('.').forEach((element) {
+        if(value == null) {
+          value = _localizationsStrings[element];
+        } else {
+          value = value[element];
+        }
+      });
+    }
+
+    if(value == null) {
+      return throw ArgumentError(
+        'key: $key not found in ${locale.languageCode}'
+      );
+    }
+
+    //parametros para poder concatenar valores com o texto
+    if(params != null) {
+      params.forEach((key, value) { 
+        value = value.replaceAll('{{$key}}', value);
+      });
+    }
+    return value ?? defaultValue;
   }
 
   static AppLocalizations of(BuildContext context) {

@@ -24,7 +24,7 @@ abstract class _AppControllerBase with Store {
   ThemeMode themeMode = ThemeMode.light;
 
   @action
-  void loadThemeData() async {
+  Future<void> loadThemeData() async {
     await sharedRepository.readThemeMode().then((mode){
       themeMode = mode;
       themeApp = AppThemeFactory.getTheme(mode);
@@ -33,7 +33,8 @@ abstract class _AppControllerBase with Store {
   }
 
   @action
-  void setThemeData(ThemeMode themeMode, {bool saveShared = true}) async {
+  Future<void> setThemeData(ThemeMode themeMode, 
+    {bool saveShared = true}) async {
     themeApp = AppThemeFactory.getTheme(themeMode);
     if(saveShared) {
       await sharedRepository.saveThemeMode(themeMode);

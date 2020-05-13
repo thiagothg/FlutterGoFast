@@ -4,6 +4,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'app_controller.dart';
+import 'core/consts/routers_const.dart';
 import 'core/features/localization/app_localizations.dart';
 
 class AppWidget extends StatelessWidget {
@@ -15,7 +16,7 @@ class AppWidget extends StatelessWidget {
           title: 'Flutter Slidy',
           theme: Modular.get<AppController>().themeApp.getTheme(),
           themeMode: Modular.get<AppController>().themeMode,
-          initialRoute: '/',
+          initialRoute: RoutersConst.intro,
           onGenerateRoute: Modular.generateRoute,
           supportedLocales: [
             Locale('en', 'US'),
