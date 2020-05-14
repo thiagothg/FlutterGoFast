@@ -1,7 +1,7 @@
+import 'package:flutter_gofast/app/modules/login_module.dart';
 import 'package:flutter_modular/flutter_modular_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:flutter_gofast/app/modules/login/login_module.dart';
 
 void main() {
   initModule(LoginModule());
