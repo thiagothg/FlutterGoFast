@@ -1,18 +1,19 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
-
-import 'controllers/app_controller.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'app_controller.dart';
+import 'app_widget.dart';
 import 'core/consts/routers_const.dart';
 import 'interfaces/auth_repository_interface.dart';
+import 'interfaces/firebase_repository_base_interface.dart';
 import 'interfaces/shared_repository_interface.dart';
 import 'modules/home_module.dart';
 import 'modules/intro_module.dart';
 import 'modules/login_module.dart';
 import 'modules/splash_module.dart';
 import 'repositories/auth_repository.dart';
+import 'repositories/client_repository.dart';
 import 'repositories/shared_repository.dart';
-import 'views/pages/main/app_widget.dart';
 
 
 class AppModule extends MainModule {
@@ -25,6 +26,9 @@ class AppModule extends MainModule {
     ),
     Bind<IAuthRepository>(
       (i) => AuthRepository(firebaseAuth),
+    ),
+    Bind<IFirebaseRepositoryBaseInterface>(
+      (i) => ClientRepository(),
     ),
     Bind((i) => AppController()),
   ];

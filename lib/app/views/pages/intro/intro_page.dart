@@ -1,6 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
-import '../../../controllers/intro_controller.dart';
+import '../../../controllers/intro/intro_controller.dart';
 import '../../../core/consts/colors.conts.dart';
 import '../../../core/localization/app_translate.dart';
 import 'widgets/slide_dots_widget.dart';
@@ -53,9 +53,7 @@ class _IntroPageState extends ModularState<IntroPage, IntroController> {
                     SizedBox(height: _height * 0.06,),
 
                     RaisedButton(
-                      onPressed: (){
-
-                      },
+                      onPressed: controller.doEnter,
                       child: Text(AppTranslate(context).text('intro.login_now'),
                         style: Theme.of(context).textTheme.bodyText2.copyWith(
                           color: Colors.white,
@@ -63,6 +61,7 @@ class _IntroPageState extends ModularState<IntroPage, IntroController> {
                         ),
                       ),
                     ),
+                    SizedBox(height: _height * 0.07,),
 
                     Column(
                       children: <Widget> [
@@ -93,7 +92,7 @@ class _IntroPageState extends ModularState<IntroPage, IntroController> {
 
                         RaisedButton(
                           color: Colors.red,
-                          onPressed: () {},
+                          onPressed:() async => controller.doGoogle(),
                           child: Text(
                             AppTranslate(context).text('intro.login_google'),
                             style: Theme.of(context)

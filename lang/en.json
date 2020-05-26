@@ -1,4 +1,8 @@
 {
+    "splash": {
+        "welcome": "Wolcome",
+        "app_name": "Go Fast"
+    },
     "intro": {
         "welcome": "Welcome to PostIn",
         "login_now": "Login Now",

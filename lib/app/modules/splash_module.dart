@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import '../controllers/splash_controller.dart';
+import '../controllers/splash/splash_controller.dart';
 import '../views/pages/splash/splash_page.dart';
 
 
